@@ -48,17 +48,11 @@ export class MapComponent implements OnInit {
       type: 'Polygon',
       coordinates: [
         [
-          -71.1058313,
-          42.4138324,
-          0 - 71.0366555,
-          42.4141492,
-          0 - 71.0365697,
-          42.4405666,
-          0 - 71.1066037,
-          42.4405033,
-          0 - 71.1058313,
-          42.4138324,
-          0,
+          [-71.1058313, 42.4138324, 0.0],
+          [-71.0366555, 42.4141492, 0.0],
+          [-71.0365697, 42.4405666, 0.0],
+          [-71.1066037, 42.4405033, 0.0],
+          [-71.1058313, 42.4138324, 0.0],
         ],
       ],
     },
@@ -205,7 +199,7 @@ export class MapComponent implements OnInit {
   siteLocation3 = L.latLng(42.42669003531347, -71.06854446906613);
   siteLocation4 = L.latLng(42.42681684393761, -71.0689951863814);
   siteLocation5 = L.latLng(42.430009097442955, -71.07384847748972);
-   
+
   initMap(fixedLocation: L.LatLng) {
     this.map = L.map('map').setView(fixedLocation, 16);
     L.tileLayer(
@@ -223,29 +217,52 @@ export class MapComponent implements OnInit {
     L.geoJSON(this.pleasantLot).addTo(this.map);
     L.geoJSON(this.mountainGarage).addTo(this.map);
     L.geoJSON(this.charlesLot).addTo(this.map);
-    const mbtaMarker = L.marker(this.mbtaLocation, { icon: this.mbtaIcon }).addTo(this.map);
-    const parkingMarker = L.marker(this.parkingLocation, { icon: this.parkingIcon }).addTo(this.map);
-    const parkingMarker2 = L.marker(this.parkingLocation2, { icon: this.parkingIcon }).addTo(this.map);
-    const parkingMarker3 = L.marker(this.parkingLocation3, { icon: this.parkingIcon }).addTo(this.map);
-    
-    const popupMessage = "<b>Idle Hands Craft Ales</b><br><a href='https://www.idlehandscraftales.com/'>idlehandscraftales.com</a> ";
-    const siteMarker = L.marker(this.siteLocation, { icon: this.siteIcon }).addTo(this.map);
+    const mbtaMarker = L.marker(this.mbtaLocation, {
+      icon: this.mbtaIcon,
+    }).addTo(this.map);
+    const parkingMarker = L.marker(this.parkingLocation, {
+      icon: this.parkingIcon,
+    }).addTo(this.map);
+    const parkingMarker2 = L.marker(this.parkingLocation2, {
+      icon: this.parkingIcon,
+    }).addTo(this.map);
+    const parkingMarker3 = L.marker(this.parkingLocation3, {
+      icon: this.parkingIcon,
+    }).addTo(this.map);
+
+    const popupMessage =
+      "<b>Idle Hands Craft Ales</b><br><a href='https://www.idlehandscraftales.com/'>idlehandscraftales.com</a> ";
+    const siteMarker = L.marker(this.siteLocation, {
+      icon: this.siteIcon,
+    }).addTo(this.map);
     siteMarker.bindPopup(popupMessage).openPopup();
 
-    const popupMessage2 = "<b>Boda Borg</b><br><a href='https://www.bodaborg.com/'>bodaborg.com</a> ";
-    const siteMarker2 = L.marker(this.siteLocation2, { icon: this.siteIcon }).addTo(this.map);
+    const popupMessage2 =
+      "<b>Boda Borg</b><br><a href='https://www.bodaborg.com/'>bodaborg.com</a> ";
+    const siteMarker2 = L.marker(this.siteLocation2, {
+      icon: this.siteIcon,
+    }).addTo(this.map);
     siteMarker2.bindPopup(popupMessage2).openPopup();
 
-    const popupMessage3 = "<b>Faces Brewing</b><br><a href='https://www.facesbrewing.com/'>facesbrewing.com</a> ";
-    const siteMarker3 = L.marker(this.siteLocation3, { icon: this.siteIcon }).addTo(this.map);
+    const popupMessage3 =
+      "<b>Faces Brewing</b><br><a href='https://www.facesbrewing.com/'>facesbrewing.com</a> ";
+    const siteMarker3 = L.marker(this.siteLocation3, {
+      icon: this.siteIcon,
+    }).addTo(this.map);
     siteMarker3.bindPopup(popupMessage3).openPopup();
 
-    const popupMessage4 = "<b>All Seasons Table</b><br><a href='https://www.astrestaurant.com/'>astrestaurant.com</a> ";
-    const siteMarker4 = L.marker(this.siteLocation4, { icon: this.siteIcon }).addTo(this.map);
+    const popupMessage4 =
+      "<b>All Seasons Table</b><br><a href='https://www.astrestaurant.com/'>astrestaurant.com</a> ";
+    const siteMarker4 = L.marker(this.siteLocation4, {
+      icon: this.siteIcon,
+    }).addTo(this.map);
     siteMarker4.bindPopup(popupMessage4).openPopup();
 
-    const popupMessage5 = "<b>Malden Center for Arts & Culture</b><br><a href='https://www.cityofmalden.org/'>www.cityofmalden.org</a> ";
-    const siteMarker5 = L.marker(this.siteLocation5, { icon: this.siteIcon }).addTo(this.map);
+    const popupMessage5 =
+      "<b>Malden Center for Arts & Culture</b><br><a href='https://www.cityofmalden.org/'>www.cityofmalden.org</a> ";
+    const siteMarker5 = L.marker(this.siteLocation5, {
+      icon: this.siteIcon,
+    }).addTo(this.map);
     siteMarker5.bindPopup(popupMessage5).openPopup();
 
     this.marker = L.marker([0, 0], this.animatedCircleIcon).addTo(this.map);
